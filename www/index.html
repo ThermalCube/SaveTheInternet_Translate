@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Yaml Editor</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+        <script src="dist/bundle.js"></script>
+    </head>
+
+    <body>
+        <div id="content"></div>
+        
+        <div class="overlay" contenteditable="true"></div>
+        <div class="overlay__close">&times;</div>
+        
+        <script name="keylist" type="text/template">
+            <div class="topbar">
+                <input class="topbar__input" type="text" name="$$lang" form="$$form" placeholder="de_DE">
+                <input class="topbar__button" type="submit" value="Speichern" form="$$form">
+            </div>
+            <form id="$$form" name="$$form" action="#">
+                <ul class="editor">
+                    {{#each keys}}
+                    <li class="editor__row">
+                        <div class="editor__key">{{this}}</div>
+                        <div class="editor__value">
+                            <input type="text" name="{{this}}" placeholder="{{this}}">
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </form>
+        </script>
+    </body>
+
+</html>
